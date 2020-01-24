@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define GLEW_STATIC
 
@@ -25,12 +26,23 @@ void dibujarFondo() {
 	glVertex3f(-1.0f, -1.0f, 0.0f);
 
 	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	for (int i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f ((0.5 * cos(i * 3.1416 / 180.0)) - 0.6, (0.1 * sin(i * 3.1416 / 180.0)) + 0.4, 0.0f);
+	}
+
+	glEnd();
 }
 void dibujarCasa() {
 	//Muro
 	glBegin(GL_QUADS);
 
-	glColor3f(0.9f, 0.7f, 0.0f);
+	glColor3f(0.7f, 0.4f, 0.2f);
 
 	glVertex3f(-0.3f, 0.2f, 0.0f);
 	glVertex3f(0.7f, 0.2f, 0.0f);
@@ -53,64 +65,72 @@ void dibujarCasa() {
 
 	glColor3f(0.8f, 0.2f, 0.0f);
 
-	glVertex3f(0.3f, 0.1f, 0.0f);
+	glVertex3f(0.31f, 0.1f, 0.0f);
 	glVertex3f(0.6f, 0.1f, 0.0f);
 	glVertex3f(0.6f, -0.2f, 0.0f);
-	glVertex3f(0.3f, -0.2f, 0.0f);
+	glVertex3f(0.31f, -0.2f, 0.0f);
 
 	glColor3f(0.3f, 0.8f, 0.9f);
+
 	//esquina superior izquierda
-	glVertex3f(0.32f, 0.08f, 0.0f);
-	glVertex3f(0.43f, 0.08f, 0.0f);
-	glVertex3f(0.43f, -0.05f, 0.0f);
-	glVertex3f(0.32f, -0.05f, 0.0f);
+	glVertex3f(0.33f, 0.08f, 0.0f);
+	glVertex3f(0.44f, 0.08f, 0.0f);
+	glVertex3f(0.44f, -0.05f, 0.0f);
+	glVertex3f(0.33f, -0.05f, 0.0f);
+
 	//esquina superior derecha
-	glVertex3f(0.32f, 0.08f, 0.0f);
-	glVertex3f(0.43f, 0.08f, 0.0f);
-	glVertex3f(0.43f, -0.05f, 0.0f);
-	glVertex3f(0.32f, -0.05f, 0.0f);
+	glVertex3f(0.46f, 0.08f, 0.0f);
+	glVertex3f(0.58f, 0.08f, 0.0f);
+	glVertex3f(0.58f, -0.05f, 0.0f);
+	glVertex3f(0.46f, -0.05f, 0.0f);
+
 	//esquina inferior izquierda
-	glVertex3f(0.32f, 0.08f, 0.0f);
-	glVertex3f(0.43f, 0.08f, 0.0f);
-	glVertex3f(0.43f, -0.05f, 0.0f);
-	glVertex3f(0.32f, -0.05f, 0.0f);
+	glVertex3f(0.33f, -0.07f, 0.0f);
+	glVertex3f(0.44f, -0.07f, 0.0f);
+	glVertex3f(0.44f, -0.18f, 0.0f);
+	glVertex3f(0.33f, -0.18f, 0.0f);
+
 	//esquina inferior derecha
-	glVertex3f(0.32f, 0.08f, 0.0f);
-	glVertex3f(0.43f, 0.08f, 0.0f);
-	glVertex3f(0.43f, -0.05f, 0.0f);
-	glVertex3f(0.32f, -0.05f, 0.0f);
+	glVertex3f(0.46f, -0.07f, 0.0f);
+	glVertex3f(0.58f, -0.07f, 0.0f);
+	glVertex3f(0.58f, -0.18f, 0.0f);
+	glVertex3f(0.46f, -0.18f, 0.0f);
 
 	glEnd();
 	//Puerta
 	glBegin(GL_QUADS);
 
+	glColor3f(0.8f, 0.8f, 0.5f);
+
+	glVertex3f(0.05f, -0.25f, 0.0f);
+	glVertex3f(0.35f, -0.25f, 0.0f);
+	glVertex3f(0.35f, -0.7f, 0.0f);
+	glVertex3f(0.05f, -0.7f, 0.0f);
+
 	glEnd();
 }
 
-void dibujarTriangulos() {
-	//Establecemos el tipo de primitiva
-	glBegin(GL_TRIANGLES);
-	//Establecemos el color
-	glColor3f(0.0f, 0.0f, 1.0f);
-	//Envíar vértices
-	glVertex3f(-0.5f, 0.5f, 0.0f);
-	glVertex3f(-0.5f, 0.0f, 0.0f);
-	glVertex3f(0.0f, 0.5f, 0.0f);
+void dibujarArbol() {
+	glBegin(GL_QUADS);
 
-	glVertex3f(0.0f, 0.5f, 0.0f);
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(-0.5f, 0.0f, 0.0f);
+	glColor3f(0.7f, 0.5f, 0.2f);
 
-	//Especificar que dejaremos de dibujar
+	glVertex3f(-0.75f, -0.2f, 0.0f);
+	glVertex3f(-0.55f, -0.2f, 0.0f);
+	glVertex3f(-0.55f, -0.75f, 0.0f);
+	glVertex3f(-0.75f, -0.75f, 0.0f);
+
+
 	glEnd();
 }
-void dibujarLineas() {
-	glBegin(GL_LINES);
-	glColor3f(1.0f, 0.4f, 0.6f);
 
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.2f, -0.4f, 0.0f);
+void dibujarPasto() {
+	glBegin(GL_LINE);
 
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+	glVertex3f(-0.2f, -0.8f, 0.0f);
+	glVertex3f(-0.3f, -0.7f, 0.0f);
 
 	glEnd();
 }
@@ -118,6 +138,8 @@ void dibujarLineas() {
 void dibujar() {
 	dibujarFondo();
 	dibujarCasa();
+	dibujarArbol();
+	dibujarPasto();
 }
 
 int main()
