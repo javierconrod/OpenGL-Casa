@@ -31,12 +31,66 @@ void dibujarFondo() {
 
 	glColor3f(1.0f, 1.0f, 1.0f);
 
-	for (int i = 1; i < 360; i += 5.0)
+	for (double i = 1; i < 360; i += 5.0)
 	{
-		glVertex3f ((0.5 * cos(i * 3.1416 / 180.0)) - 0.6, (0.1 * sin(i * 3.1416 / 180.0)) + 0.4, 0.0f);
+		glVertex3f((0.3 * cos(i * 3.1416 / 180.0)) + 0.72, (0.15 * sin(i * 3.1416 / 180.0)) + 0.6, 0.0f);
 	}
 
 	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	for (double i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f((0.2 * cos(i * 3.1416 / 180.0)) + 0.66, (0.2 * sin(i * 3.1416 / 180.0)) + 0.7, 0.0f);
+	}
+
+	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+
+	for (double i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f((0.3 * cos(i * 3.1416 / 180.0)) - 0.3, (0.2 * sin(i * 3.1416 / 180.0)) + 0.2, 0.0f);
+	}
+
+	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(1.0f, 1.0f, 0.0f);
+
+	for (double i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f((0.2 * cos(i * 3.1416 / 180.0)) - 0.8, (0.2 * sin(i * 3.1416 / 180.0)) + 0.8, 0.0f);
+	}
+
+	glEnd();
+
+	glBegin(GL_LINE);
+
+	glColor3f(1.0f, 1.0f, 0.0f);
+
+	glVertex3f(-0.9f, 0.8f, 0.0f);
+	glVertex3f(-0.6f, 0.6f, 0.0f);
+
+	glVertex3f(-0.8f, 0.8f, 0.0f);
+	glVertex3f(-0.8f, 0.8f, 0.0f);
+
+	glVertex3f(-0.9f, 0.8f, 0.0f);
+	glVertex3f(-0.6f, 0.6f, 0.0f);
+
+	glVertex3f(-0.8f, 0.8f, 0.0f);
+	glVertex3f(-0.8f, 0.8f, 0.0f);
+
+
+	glEnd();
+
+
 }
 void dibujarCasa() {
 	//Muro
@@ -108,6 +162,17 @@ void dibujarCasa() {
 	glVertex3f(0.05f, -0.7f, 0.0f);
 
 	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+	for (double i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f((0.04 * cos(i * 3.1416 / 180.0)) + 0.27, (0.04 * sin(i * 3.1416 / 180.0)) - 0.45, 0.0f);
+	}
+
+	glEnd();
 }
 
 void dibujarArbol() {
@@ -122,15 +187,54 @@ void dibujarArbol() {
 
 
 	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.05f, 1.0f, 0.2f);
+	for (double i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f((0.2 * cos(i * 3.1416 / 180.0)) - 0.65, (0.18 * sin(i * 3.1416 / 180.0)) -0.2, 0.0f);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.05f, 1.0f, 0.2f);
+	for (double i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f((0.2 * cos(i * 3.1416 / 180.0)) - 0.6, (0.2 * sin(i * 3.1416 / 180.0)) -0.1, 0.0f);
+	}
+	glEnd();
+
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.05f, 1.0f, 0.2f);
+	for (double i = 1; i < 360; i += 5.0)
+	{
+		glVertex3f((0.16 * cos(i * 3.1416 / 180.0)) - 0.65, (0.16 * sin(i * 3.1416 / 180.0)) + 0.1, 0.0f);
+	}
+	glEnd();
+
 }
 
 void dibujarPasto() {
-	glBegin(GL_LINE);
+	glBegin(GL_LINE_STRIP);
 
 	glColor3f(0.0f, 0.0f, 0.0f);
 
 	glVertex3f(-0.2f, -0.8f, 0.0f);
-	glVertex3f(-0.3f, -0.7f, 0.0f);
+	glVertex3f(-0.1f, -0.9f, 0.0f);
+	glVertex3f(-0.0f, -0.8f, 0.0f);
+	
+
+	glEnd();
+
+	glBegin(GL_LINE_STRIP);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+
+	glVertex3f(0.2f, -0.82f, 0.0f);
+	glVertex3f(0.3f, -0.92f, 0.0f);
+	glVertex3f(0.4f, -0.82f, 0.0f);
+
 
 	glEnd();
 }
